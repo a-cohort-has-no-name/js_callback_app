@@ -11,6 +11,17 @@ function changeColors() {
   
 }
 
-$.get('https://data.sfgov.org/resource/jjew-r69b.json', function(response){
-  console.log(response);
-});
+function getData(){
+  var divFoodtrucks = document.getElementById('foodtrucks');
+  divFoodtrucks.innerHTML = "Loading...";
+  $.get('https://data.sfgov.org/resource/jjew-r69b.json', function(response){
+    var text = '';
+    for (var i = 0; i < response.length; i++) {
+      var foodtruck = response[i];
+      text += '<h3>' + foodtruck.applicant + '</h3>';
+      text += '<p>' + foodtruck.dayofweekstr + '</p>';
+      text += '<p>' + foodtruck.location + '</p>';
+    }
+    divFoodtrucks.innerHTML = text;
+  });
+}
