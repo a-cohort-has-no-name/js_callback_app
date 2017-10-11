@@ -18,10 +18,16 @@ function getData(){
     var text = '';
     for (var i = 0; i < response.length; i++) {
       var foodtruck = response[i];
+      text += '<div onclick="changeFoodtruck(this)">';
       text += '<h3>' + foodtruck.applicant + '</h3>';
       text += '<p>' + foodtruck.dayofweekstr + '</p>';
       text += '<p>' + foodtruck.location + '</p>';
+      text += '</div>';
     }
     divFoodtrucks.innerHTML = text;
   });
+}
+
+function changeFoodtruck(divFoodtruck) {
+  divFoodtruck.classList.toggle('purple');
 }
