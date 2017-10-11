@@ -10,3 +10,7 @@ function changeColors() {
   }, 1000);
   
 }
+
+$.get('https://data.sfgov.org/resource/jjew-r69b.json', function(response){
+  console.log(response);
+});
